@@ -1,0 +1,8 @@
+pandas
+datasets
+transformers
+evaluate
+nltk
+numpy
+torch
+tensorboard
