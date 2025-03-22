@@ -15,6 +15,7 @@ This project implements Reinforcement Learning from Human Feedback (RLHF) on cus
   - [Supervised Fine-Tuning (SFT)](#supervised-fine-tuning-sft)
   - [Reward Model Training](#reward-model-training)
   - [Policy Optimization](#policy-optimization)
+  - [Judger](#Judger:-Evaluating-Responses-and-Calculating-Preference-Scores)
 - [Workflow](#Workflow)
 - [Results](#results)
 - [Citations](#citations)
@@ -53,7 +54,6 @@ Traditional supervised learning for summarization relies on human-labeled datase
 
 ## Implementation Details
 ### 1. Supervised Fine-Tuning (SFT)
-
 Supervised Fine-Tuning (SFT) is the process of fine-tuning a pre-trained language model on a labeled dataset using supervised learning. It is a critical step in many machine learning pipelines, including Reinforcement Learning from Human Feedback (RLHF), to ensure the model performs well on a specific task before further optimization.
 
 - **Base Model**: `Flan-T5 (google/flan-t5-base)`, a powerful sequence-to-sequence model fine-tuned for a variety of tasks.
@@ -123,6 +123,29 @@ Policy Optimization is the **final step** in the RLHF pipeline. It uses **reinfo
 - **Handles Complex Preferences:**: Human preferences can be complex and subjective, especially for tasks like summarization response generation.**Policy optimization** allows the model to adapt to these preferences dynamically, producing outputs that are broadly acceptable
 - **Uses Reinforcement Learning**: The policy model is optimized using **Proximal Policy Optimization (PPO)**, a reinforcement learning algorithm.PPO ensures stable and efficient updates to the model while maximizing rewards.
 - **Produces Human-Aligned Outputs**: The final policy model generates responses that are **coherent, high-quality, and aligned with human preferences**. This makes the model more useful and reliable for real-world applications.
+---
+
+### 4. Judger: Evaluating Responses and Calculating Preference Scores
+The Judger is a critical component in the RLHF pipeline that evaluates responses (e.g., summaries or answers) and calculates preference scores based on human feedback. It acts as the bridge between human preferences and the reward model, ensuring the model's outputs align with what humans find useful or high-quality.
+
+### What is the Judger?
+#### 1.Defination
+- The Judger is a system or model that evaluates responses and assigns preference scores based on human feedback. It uses a dataset of human preferences (e.g., pairs of responses with rankings or scores) to learn how to judge the quality of outputs.
+#### 2.Purpose:
+- To provide a scalar preference score for each response, reflecting its alignment with human preferences.To guide the reward model in learning how to predict human preferences accurately.
+#### 3.Key Characteristics:
+- **Preference-Based Evaluation**: The Judger learns from human feedback to distinguish between high-quality and low-quality responses.
+- **Scalar Output**: Assigns a single score to each response, quantifying its alignment with human preferences.
+- **Domain-Specific Adaptation**: Tailored to your custom dataset, ensuring it captures preferences relevant to your specific task.
+
+#### Why is the Judger Important?
+
+The Judger evaluates responses and calculates preference scores based on human feedback, ensuring the reward model can accurately predict human preferences and guide the policy optimization process. Without the Judger, the model would lack the critical feedback needed to align its outputs with human expectations, making it difficult to produce high-quality, user-aligned results.
+
+- **Captures Human Preferences**: The Judger learns to evaluate responses based on what humans find useful or high-quality, ensuring the model aligns with real-world user needs. It handles the subjectivity of tasks like summarization, where multiple valid responses may exist.
+- **Provides Feedback for Reward Modeling:**: The preference scores calculated by the Judger are used to train the reward model. This ensures the reward model can accurately predict human preferences and provide meaningful feedback during policy optimization.
+- **Improves Output Quality**: By evaluating responses and assigning preference scores, the Judger helps refine the model's outputs to be more relevant, concise, and aligned with human expectations.
+
 ---
 
 ## Workflow 
