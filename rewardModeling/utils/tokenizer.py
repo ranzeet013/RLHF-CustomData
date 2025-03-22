@@ -1,5 +1,3 @@
-# utils/tokenizer.py
-
 from torch.nn.utils.rnn import pad_sequence
 import torch
 
