@@ -1,5 +1,3 @@
-# evaluate.py
-
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from torch.utils.data import DataLoader
 from data.dataset import PreferenceDataset
