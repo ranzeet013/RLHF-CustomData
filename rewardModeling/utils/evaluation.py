@@ -1,5 +1,3 @@
-# utils/evaluation.py
-
 from sklearn.metrics import accuracy_score
 from scipy.stats import spearmanr
 import numpy as np
