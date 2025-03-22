@@ -1,5 +1,3 @@
-# models/reward_model.py
-
 import torch
 from torch.utils.data import DataLoader
 from transformers import AutoModelForSequenceClassification, AdamW
