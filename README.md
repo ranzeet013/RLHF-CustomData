@@ -3,7 +3,7 @@
 This project implements Reinforcement Learning from Human Feedback (RLHF) on custom data, replicating the pipeline described in the paper "Learning to Summarize from Human Feedback" by OpenAI. The RLHF process involves three key steps: Supervised Fine-Tuning (SFT), Reward Model Training, and Policy Optimization, enabling the model to generate summaries that align with human preferences.
 
 <p align="center">
-  <img src="https://github.com/ranzeet013/RLHF-CustomData/blob/main/assets/Screenshot%202025-03-22%20at%2010.35.33.png" alt="RLHF Pipeline from "Learning to Summarize from Human Feedback" width="500">
+  <img src="https://github.com/ranzeet013/RLHF-CustomData/blob/main/assets/Screenshot%202025-03-22%20at%2010.35.33.png" alt="RLHF Pipeline from "Learning to Summarize from Human Feedback" width="700">
 </p>
 ---
 
@@ -15,7 +15,7 @@ This project implements Reinforcement Learning from Human Feedback (RLHF) on cus
   - [Supervised Fine-Tuning (SFT)](#supervised-fine-tuning-sft)
   - [Reward Model Training](#reward-model-training)
   - [Policy Optimization](#policy-optimization)
-  - [Judger](#Judger:-Evaluating-Responses-and-Calculating-Preference-Scores)
+  - [Judger](#Judger)
 - [Workflow](#Workflow)
 - [Results](#results)
 - [Citations](#citations)
@@ -125,7 +125,7 @@ Policy Optimization is the **final step** in the RLHF pipeline. It uses **reinfo
 - **Produces Human-Aligned Outputs**: The final policy model generates responses that are **coherent, high-quality, and aligned with human preferences**. This makes the model more useful and reliable for real-world applications.
 ---
 
-### 4. Judger: Evaluating Responses and Calculating Preference Scores
+### 4. Judger
 The Judger is a critical component in the RLHF pipeline that evaluates responses (e.g., summaries or answers) and calculates preference scores based on human feedback. It acts as the bridge between human preferences and the reward model, ensuring the model's outputs align with what humans find useful or high-quality.
 
 ### What is the Judger?
